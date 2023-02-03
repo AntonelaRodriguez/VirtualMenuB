@@ -1,0 +1,69 @@
+[
+    {
+        "id": 1,
+        "name": "Americana",
+        "type": "Hamburguesa",
+        "ingredients": [
+            "Res",
+            "Cheddar",
+            "Panceta",
+            "Barbacoa"
+        ],
+        "price": 700
+    },
+    {
+        "id": 2,
+        "name": "Clasica",
+        "type": "Hamburguesa",
+        "ingredients": [
+            "Res",
+            "Queso",
+            "Lechuga",
+            "Tomate",
+            "Cebolla"
+        ],
+        "price": 700
+    },
+    {
+        "id": 1,
+        "name": "Blueches",
+        "type": "Hamburguesa",
+        "ingredients": [
+            "Res",
+            "Huevo",
+            "Muzzarella",
+            "Tomate",
+            "Roquefort"
+        ],
+        "price": 800
+    },
+    {
+        "id": 1,
+        "name": "Provolone",
+        "type": "Hamburguesa",
+        "ingredients": [
+            "Doble Res",
+            "Huevo",
+            "Provoleta",
+            "Tomate"
+        ],
+        "price": 900
+    },
+    {
+        "id": 1,
+        "name": "Mac-Burguer",
+        "type": "Hamburguesa",
+        "ingredients": [
+            "Doble Res",
+            "Doble Cheddar",
+            "Mostaza",
+            "Ketchup",
+            "Pepinillos",
+            "Cebolla",
+            "Huevo",
+            "Tomate"
+        ],
+        "price": 900
+    }
+
+]
