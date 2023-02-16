@@ -2,12 +2,12 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const morgan = require("morgan");
 const routes = require("./routes/index");
-const setHeaders = require("./utils/middlewares/setHeaders");
-const errorHandler = require("./utils/middlewares/errorHandler");
+const setHeaders = require("./utils/middlewares/setHeaders").default;
+const errorHandler = require("./utils/middlewares/errorHandler").default;
 
 
 const app = express();
-app.name = "API";
+// app.name = "API";
 
 //Middlewares
 app.use(cookieParser()); //Manejo de cookies

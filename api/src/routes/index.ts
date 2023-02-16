@@ -1,6 +1,6 @@
 const { Router } = require('express')
-const menuRouter = require('./menuRouter')
-const categoryRouter = require('./categoryRouter')
+const menuRouter = require('./menuRouter').default
+const categoryRouter = require('./categoryRouter').default
 
 const router = Router()
 

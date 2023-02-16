@@ -1,4 +1,4 @@
-const app = require("./src/app");
+const app = require("./src/app").default;
 const { conn } = require("./src/db");
 const { Port } = require("./src/utils/config");
 
