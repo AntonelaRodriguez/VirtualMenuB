@@ -2,10 +2,19 @@ const { DataTypes } = require('sequelize');
 
 export = (sequelize:any) => {
     sequelize.define("Category", {
+        id: {
+            type: DataTypes.UUID,
+            defaultValue: DataTypes.UUID4,
+            allowNull: false,
+            primaryKey: true
+        },
         name: {
-            type: DataTypes.ENUM(["normal", "fighting", "flying", "poison", "ground", "rock", "bug", "ghost", "steel", "fire", "water", "grass", "electric", "psychic", "ice", "dragon", "dark", "fairy", "shadow", "unknown"]),
-            defaultValue: "unknown",
-          },
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: true
+            }
+        },
     },
     {
         timestamps: false

@@ -75,12 +75,21 @@ let capsEntries = entries.map((entry) => [
 sequelize.models = Object.fromEntries(capsEntries);
 
 // Extraigo cada modelo.
-const { Menu, Category } = sequelize.models;
+const { Menu, Category, User, Review, Image } = sequelize.models;
 
 // Seteo relaciones entre modelos.
 
 Menu.belongsToMany(Category, { through: "Menu_Category" });
 Category.belongsToMany(Menu, { through: "Menu_Category" });
+
+User.hasMany(Review); 
+Review.belongsTo(User);
+
+Menu.hasMany(Review); 
+Review.belongsTo(Menu);
+
+Menu.hasMany(Image);
+Image.belongsTo(Menu);
 
 export = {
   ...sequelize.models,

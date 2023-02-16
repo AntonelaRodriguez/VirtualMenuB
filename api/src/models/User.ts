@@ -1,31 +1,36 @@
 const { DataTypes } = require('sequelize');
 
 export = (sequelize:any) => {
-    sequelize.define("Menu", {
+    sequelize.define("User", {
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            primaryKey: true
+        },
         name: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                notEmpty: true
+              notEmpty: true
             }
         },
-        description: {
+        lastName: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                notEmpty: true
+              notEmpty: true
             }
         },
-        price: {
-            type: DataTypes.DECIMAL,
-            allowNull: false,
-            validate: {
-                notEmpty: true
-            }
+        image: {
+            type: DataTypes.STRING
         },
-        availability: {
+        admin: {
             type: DataTypes.BOOLEAN,
-            defaultValue: true
+            defaultValue: false
+        },
+        banned: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
         },
     },
     {
