@@ -10,7 +10,6 @@ const {
 } = require("./utils/config");
 
 
-// Defino los parametros de conexión con la base de datos mediante una instancia de Sequelize
 let sequelize =
   process.env.NODE_ENV === "production"
     ? new Sequelize({
@@ -39,7 +38,6 @@ let sequelize =
         { logging: false, native: false }
       );
 
-// Pruebo si la conexión está bien.
 (async () => {
     try {
       await sequelize.authenticate();
@@ -51,7 +49,6 @@ let sequelize =
     }
   })();
 
-// Requiero e introduzco cada funcion de modelo en el array "modelDefiners".
 const basename = path.basename(__filename);
 const modelDefiners:any[] = [];
 fs.readdirSync(path.join(__dirname, "/models"))
@@ -63,10 +60,8 @@ fs.readdirSync(path.join(__dirname, "/models"))
     modelDefiners.push(require(path.join(__dirname, "/models", file)));
   });
 
-// Defino cada modelo pasandole el parametro "sequelize" a cada funcion de modelo.
 modelDefiners.forEach((model: any) => model(sequelize));
 
-// Renombro cada modelo en formato PascalCase.
 let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => [
   entry[0][0].toUpperCase() + entry[0].slice(1),
@@ -74,10 +69,7 @@ let capsEntries = entries.map((entry) => [
 ]);
 sequelize.models = Object.fromEntries(capsEntries);
 
-// Extraigo cada modelo.
 const { Menu, Category, User, Review, Image } = sequelize.models;
-
-// Seteo relaciones entre modelos.
 
 Menu.belongsToMany(Category, { through: "Menu_Category" });
 Category.belongsToMany(Menu, { through: "Menu_Category" });

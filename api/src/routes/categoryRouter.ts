@@ -4,7 +4,7 @@ const { Category } = require('../db')
 
 
 
-categoryRouter.get("/", async (_req:any, res:any, next:any) => { //busca todas las categories
+categoryRouter.get("/", async (_req:any, res:any, next:any) => {
 	try {
 	  let categories = await Category.findAll();
 	  return res.status(200).send(categories)
@@ -13,14 +13,22 @@ categoryRouter.get("/", async (_req:any, res:any, next:any) => { //busca todas l
 	}
 });
 
-categoryRouter.post("/", async (req:any, res:any, next:any) => {    //busca o agrega una categoria
+categoryRouter.post("/", async (req:any, res:any, next:any) => {
 	try {
 		const { name } = req.body;
-        let newName = name.toLowerCase();
-	    let category = await Category.findOrCreate({
-		where: { name: newName }
-	  });
-	  return res.status(201).send(category)
+		let newCategory = name.toLowerCase();
+		let result = await Category.findOne({
+			where:{
+				name:newCategory,
+			}
+		});
+		if (result) throw new Error("The category already exists");
+
+		const category = await Category.create({
+			name: newCategory,
+		});
+
+		res.status(201).json(category);
 	} catch (error) {
 	  next(error);
 	}
