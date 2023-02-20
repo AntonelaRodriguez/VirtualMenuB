@@ -1,4 +1,3 @@
-// const { Op } = require('sequelize')
 const { Menu, Category } = require('../db')
 
 const getAllMenus = async () => {
