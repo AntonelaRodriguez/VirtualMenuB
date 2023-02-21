@@ -1,6 +1,6 @@
-const { Router } = require('express')
-const menuRouter = Router()
-const { getAllMenus, createMenu, updateMenu, deleteMenu } = require('../controllers/menu') 
+const { Router } = require('express');
+const menuRouter = Router();
+const { getAllMenus, createMenu, updateMenu, deleteMenu } = require('../controllers/menu');
 
 menuRouter.get('/', async (_req:any, res:any, next:any) => {
     try{
@@ -8,7 +8,7 @@ menuRouter.get('/', async (_req:any, res:any, next:any) => {
         res.status(201).json(allMenus);
     } catch(error) {
         next(error);
-    }
+    };
 });
 
 menuRouter.post('/', async (req:any, res:any, next:any) => {
@@ -17,9 +17,9 @@ menuRouter.post('/', async (req:any, res:any, next:any) => {
         const result = await createMenu(name, description, price, category);
         res.status(201).json(result)
     } catch(error) {
-        next(error)
-    }
-})
+        next(error);
+    };
+});
 
 menuRouter.put('/:id', async (req:any, res:any, next:any) => {
     try{
@@ -40,7 +40,7 @@ menuRouter.delete('/:id', async (req:any, res:any, next:any) => {
         res.status(201).send("Menu succesfully deleted");
     } catch(error) {
         next(error);
-    }
-})
+    };
+});
 
-export default menuRouter
+export default menuRouter;

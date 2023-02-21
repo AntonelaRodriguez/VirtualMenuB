@@ -3,8 +3,9 @@ const { DataTypes } = require('sequelize');
 export = (sequelize:any) => {
     sequelize.define("Review", {
         id: {
-            type: DataTypes.UUID,
-            defaultValue: DataTypes.UUID4,
+            type: DataTypes.INTEGER,
+            // allowNull: false,
+            autoIncrement: true,
             primaryKey: true
         },
         title: {
@@ -16,8 +17,9 @@ export = (sequelize:any) => {
             allowNull: false
         },
         date: {
-            type: DataTypes.DATE,
-            defaultValue: DataTypes.NOW
+            type: DataTypes.DATEONLY,
+            defaultValue: DataTypes.NOW,
+            allowNull: false,
         },
         rating: {
             type: DataTypes.INTEGER,

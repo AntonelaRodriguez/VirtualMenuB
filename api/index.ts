@@ -12,4 +12,4 @@ const { Port } = require("./src/utils/config");
   } catch (error) {
     console.log("Error:", error);
   }
-})(); 
+})();
